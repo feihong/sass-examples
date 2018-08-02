@@ -8,10 +8,13 @@ const sass = require('node-sass')
 const express = require('express')
 
 const app = express()
+const expressWs = require('express-ws')(app)
 app.use(express.static('public'))
 app.locals.basedir = path.join(__dirname, 'templates')
 app.set('view engine', 'pug')
 app.set('views', 'pages')
+
+let sockets = []; // array of Websocket instances
 
 // Map the URL to the actual file path of the .pug template. Return null if the
 // file doesn't exist.
@@ -46,6 +49,12 @@ async function fileExists(filePath) {
 // Serve the home page
 app.get('/', async (req, res) => {
   res.render('index.pug')
+})
+
+// Register sockets
+app.ws('/reload', (ws, req) => {
+  sockets.push(ws)
+  ws.on('close', () => sockets = sockets.filter(socket => socket !== ws))
 })
 
 // Serve up stylesheets
@@ -83,4 +92,12 @@ app.get('/:path(*)', async (req, res) => {
 
 const listener = app.listen(process.env.PORT || 8000, () => {
   console.log('Your app is listening on port ' + listener.address().port)
+
+  // Reload when sass file is changed
+  fs.watch(pagesDir, {recursive: true}, (eventType, filename) => {
+    if (eventType === 'change' && filename.endsWith('.scss')) {
+      console.log(`Changed: ${filename}`)
+      sockets.forEach(socket => socket.send('reload'))
+    }
+  })
 })

@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "express": "^4.16.3",
+    "express-ws": "^4.0.0",
     "fs-extra": "^7.0.0",
     "glob": "^7.1.2",
     "node-sass": "^4.9.2",

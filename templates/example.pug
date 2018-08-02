@@ -10,4 +10,10 @@ html(lang='en')
     block extrahead
 body.container
   block content
-  
+    
+  script.
+    const url = 'ws://' + document.location.host + '/reload'
+    const socket = new WebSocket(url)
+    socket.addEventListener('open', () => console.log('Opened'))
+    socket.addEventListener('close', () => console.log('Closed'))
+    socket.addEventListener('message', () => window.location.reload(true))
