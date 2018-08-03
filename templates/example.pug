@@ -7,13 +7,30 @@ html(lang='en')
     meta(name='viewport' content='width=device-width, initial-scale=1')
     link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css')
     link(rel='stylesheet' href='styles.scss')
+    style.
+      .debug-width {
+        position: absolute;
+        top: 0; 
+        right: 0;
+        padding: 0 0.3rem;
+        font-size: 0.8rem;
+        color: gray;
+        background-color: gold;
+        border: 1px solid gray;
+      }
     block extrahead
 body.container
+  .debug-width ?
+  
   block content
     
   script.
     const url = 'ws://' + document.location.host + '/reload'
     const socket = new WebSocket(url)
-    socket.addEventListener('open', () => console.log('Opened'))
-    socket.addEventListener('close', () => console.log('Closed'))
+    //socket.addEventListener('open', () => console.log('Opened'))
+    //socket.addEventListener('close', () => console.log('Closed'))
     socket.addEventListener('message', () => window.location.reload(true))
+    function updateDebugWidth() {
+      document.querySelector('.debug-width').textContent = document.documentElement.clientWidth
+    }
+    window.onload = window.onresize = updateDebugWidth
