@@ -46,6 +46,11 @@ async function fileExists(filePath) {
   }
 }
 
+// Return true if the file should be watched for changes
+function shouldWatch(filename) {
+  return filename.endsWith('.scss') || filename.endsWith('.pug')
+}
+
 // Serve the home page
 app.get('/', async (req, res) => {
   res.render('index.pug')
@@ -95,7 +100,7 @@ const listener = app.listen(process.env.PORT || 8000, () => {
 
   // Reload when sass file is changed
   fs.watch(pagesDir, {recursive: true}, (eventType, filename) => {
-    if (eventType === 'change' && filename.endsWith('.scss')) {
+    if (eventType === 'change' && shouldWatch(filename)) {
       console.log(`Changed: ${filename}`)
       sockets.forEach(socket => socket.send('reload'))
     }
