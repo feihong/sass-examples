@@ -4,6 +4,7 @@ $break-small: 400px;
   display: grid;
   background-color: lightgray;
   padding: 0.5rem;
+  margin-bottom: 1rem;
 
   grid-template-columns: repeat(5, 1fr);
 
@@ -13,5 +14,39 @@ $break-small: 400px;
 
   @media screen and (max-width: $break-small) {
     grid-template-columns: 1fr;
+  }
+}
+
+.grid2 {
+  display: grid;
+  background: seashell;
+  padding: 1rem;
+
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "header header header header"
+    "main main . sidebar"
+    "footer footer footer footer";
+
+  & > div {
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+  .header {
+    grid-area: header;
+    background: palegreen;
+  }
+  .main {
+    grid-area: main;
+    background: lightcyan;
+  }
+  .sidebar {
+    grid-area: sidebar;
+    background: lightsalmon;
+  }
+  .footer {
+    grid-area: footer;
+    background: burlywood;
   }
 }
