@@ -1,11 +1,14 @@
 $break-small: 400px;
 $break-medium: 600px;
 
+div[class^="grid"] {
+  margin-bottom: 1rem;
+}
+
 .grid1 {
   display: grid;
   grid-gap: 20px 5px;  // <row-gap> <col-gap>
   background: papayawhip;
-  margin-bottom: 1rem;
 
   grid-template-columns: repeat(5, 1fr);
 
@@ -52,5 +55,20 @@ $break-medium: 600px;
   .footer {
     grid-area: footer;
     background: burlywood;
+  }
+}
+
+.grid3 {
+  display: grid;
+  background: khaki;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 2fr 1fr;
+  justify-items: end;
+  align-items: stretch;
+
+  div[class^="item"] {
+    background-color: orchid;
+    padding: 0.3rem;
   }
 }
