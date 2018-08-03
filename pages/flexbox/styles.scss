@@ -1,11 +1,14 @@
+$break-small: 400px;
+
 .box1 {
   display: flex;
   justify-content: space-between;
   background-color: lightgray;
   padding: 0.5rem;
-}
 
-@media (max-width: 400px) {
-  .search { flex: 1 }
-  .box1 { padding: 0; }
+  @media screen and (max-width: $break-small) {
+    padding: 0;
+
+    .search { flex: 1 }
+  }
 }
