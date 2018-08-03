@@ -7,9 +7,9 @@ block content
   h1 Sass Examples
   
   - 
-    let examples = 'basic,flexbox'.split(/,/g)
+    let examples = 'basic,flexbox,grid'
 
   ul
-    each ex in examples
+    each ex in examples.split(/,/g)
       li
         a(href=`/${ex}/`)= ex

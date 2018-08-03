@@ -1,0 +1,13 @@
+extends /example.pug
+
+block title
+  | Grid
+
+block content
+  h1 Grid
+  
+  p hey
+  
+  .grid1
+    - for (var i=1; i <= 10; i++)
+      div(class=`item${i}`)= `item${i}`

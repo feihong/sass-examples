@@ -1,0 +1,17 @@
+$break-small: 400px;
+
+.grid1 {
+  display: grid;
+  background-color: lightgray;
+  padding: 0.5rem;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  div[class^="item"] {
+    background-color: plum;
+  }
+
+  @media screen and (max-width: $break-small) {
+    grid-template-columns: 1fr;
+  }
+}
