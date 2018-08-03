@@ -1,9 +1,10 @@
 $break-small: 400px;
+$break-medium: 600px;
 
 .grid1 {
   display: grid;
-  background-color: lightgray;
-  padding: 0.5rem;
+  grid-gap: 20px 5px;  // <row-gap> <col-gap>
+  background: papayawhip;
   margin-bottom: 1rem;
 
   grid-template-columns: repeat(5, 1fr);
@@ -12,6 +13,9 @@ $break-small: 400px;
     background-color: plum;
   }
 
+  @media screen and (max-width: $break-medium) {
+    grid-template-columns: 1fr 1fr;
+  }
   @media screen and (max-width: $break-small) {
     grid-template-columns: 1fr;
   }
@@ -19,8 +23,8 @@ $break-small: 400px;
 
 .grid2 {
   display: grid;
-  background: seashell;
-  padding: 1rem;
+  grid-gap: 10px 5px;
+  background: peachpuff;
 
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
