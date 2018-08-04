@@ -1,14 +1,72 @@
 $break-small: 400px;
+$break-medium: 800px;
+
+div[class^="box"] {
+  margin-bottom: 1rem;
+}
 
 .box1 {
   display: flex;
   justify-content: space-between;
-  background-color: lightgray;
-  padding: 0.5rem;
+
+  input { min-width: 100px; }
 
   @media screen and (max-width: $break-small) {
     padding: 0;
-
+    button { margin-right: 5px; }
     .search { flex: 1 }
+  }
+}
+
+.box2 {
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (max-width: $break-small) {
+    flex-direction: column;
+    button { margin-bottom: 5px; }
+  }
+}
+
+.box3 {
+  display: flex;
+  background: indigo;
+  height: 150px;
+
+  .hello {
+    margin: auto;
+    color: white;
+    font-size: 2rem;
+  }
+}
+
+.box4 {
+  display: flex;
+  background: tomato;
+  color: white;
+  justify-content: flex-end;
+
+  .nav-item {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    &:hover {
+      background: coral;
+    }
+  }
+
+  @media screen and (max-width: $break-medium) {
+    .nav-item {
+      flex: 1;
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: $break-small) {
+    flex-direction: column;
+    .nav-item {
+      text-align: center;
+      border-bottom: thin solid orange;
+      &:last-child { border: 0 }
+    }
   }
 }
