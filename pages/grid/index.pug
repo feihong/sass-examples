@@ -6,19 +6,23 @@ block title
 block content
   h1 Grid
   
-  p Responsive
+  p Responsive (5 columns/2 columns/1 column)
   
   .grid1
     - for (var i=1; i <= 10; i++)
       div(class=`item${i}`)= `item${i}`
+      
+  hr
 
-  p Grid area
+  p Grid area (note empty area)
   
   .grid2
     .header Header
     .main Main
     .sidebar Sidebar
     .footer Footer
+
+  hr
 
   p justify-items and align-items
   
