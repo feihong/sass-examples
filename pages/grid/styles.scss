@@ -76,7 +76,7 @@ div[class^="grid"] {
 .grid4 {
   display: grid;
   grid-gap: 5px;
-  grid: 1fr 1fr / repeat(11, 1fr);
+  grid: 1fr 1fr / 30px repeat(10, 1fr);
   background: lightsteelblue;
   text-align: center;
 
@@ -91,5 +91,15 @@ div[class^="grid"] {
   div[class^="cell"] {
     background: olive;
     color: white;
+  }
+
+  @media screen and (max-width: $break-small) {
+    grid: repeat(6, 1fr) / 30px repeat(2, 1fr);
+    .gutter {
+      grid-area: 1 / 1 / 7 / 2;
+    }
+    .header {
+      grid-area: 1 / 2 / 2 / 4;
+    }
   }
 }
