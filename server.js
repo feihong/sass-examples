@@ -63,21 +63,17 @@ app.ws('/reload', (ws, req) => {
 })
 
 // Serve up stylesheets
-app.get('/:path(*)', async (req, res, next) => {
-  let path_ = path.join(pagesDir, req.params.path)
+app.get('/:path(*).scss', async (req, res) => {
+  let path_ = path.join(pagesDir, req.params.path) + '.scss'
 
-  if (path_.endsWith('.scss')) {
-    sass.render({file: path_}, (err, result) => {
-      if (err) {
-        console.log(`Error in ${path_}:\n${err}`)
-        res.send('')
-      } else {
-        res.type('text/css').send(result.css)
-      }
-    })
-  } else {
-    next()
-  }
+  sass.render({file: path_}, (err, result) => {
+    if (err) {
+      console.log(`Error in ${path_}:\n${err}`)
+      res.send('')
+    } else {
+      res.type('text/css').send(result.css)
+    }
+  })
 })
 
 // Serve up pages
