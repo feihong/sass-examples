@@ -29,3 +29,14 @@ block content
   .grid3
     - for (let i=1; i <= 9; i++)
       div(class=`item${i}`)= `item${i}`
+
+  hr
+    
+  p Use grid-area as shorthand for grid-row-start, grid-column-start, grid-row-end, and grid-column-end.
+  
+  .grid4
+    .gutter 囧
+    .header Header
+    - for (let i=1; i <= 10; i++)
+      div(class=`cell${i}`)= `cell${i}`
+    
