@@ -1,4 +1,5 @@
 $bg: #64adfe;
+$break-small: 400px;
 
 html, body, main {
   height: 100%;
@@ -6,15 +7,16 @@ html, body, main {
 
 body {
   background: $bg;
+  &.container { padding: 0 }
 }
 
 main {
   margin: auto;
   max-width: 760px;
-  padding: 0.3rem 1.5rem 0.5rem;
+  padding: 0.3rem 0.5rem 0.5rem;  // top sides bottom
   background: ivory;
-}
 
-.big {
-  font-size: 3rem;
+  .big {
+    font-size: 2rem;
+  }
 }
