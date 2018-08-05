@@ -1,0 +1,38 @@
+extends /example.pug
+
+block title
+  | Partial Border
+
+block content
+  h1 Partial Border
+  
+  p
+    a(href='https://stackoverflow.com/questions/8835142/any-way-to-declare-a-size-partial-border-to-a-box') Source
+
+  p Unsuccessful bottom border (too long)
+
+  h2.title1 有趣的标题
+
+  p Use display:table so border doesn't go beyond text
+
+  h2.title2 有趣的标题
+  
+  p Use margin:auto to center the text and the border
+  
+  h2.title3 有趣的标题
+  
+  p Use :after to make the border partial
+  
+  h2.title4 有趣的标题
+
+  p Normal borders between block-level elements
+  
+  .boxes1
+    - for (let i=1; i <= 4; i++)
+      div(class='box')= `Box ${i}`
+
+  p Use linear-gradient to create partial borders between block-level elements
+  
+  .boxes2
+    - for (let i=1; i <= 4; i++)
+      div(class='box')= `Box ${i}`
