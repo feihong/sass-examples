@@ -65,8 +65,9 @@ div[class^="box"] {
     flex-direction: column;
     .nav-item {
       text-align: center;
-      border-bottom: thin solid orange;
-      &:last-child { border: 0 }
+      &:not(:first-child) { border-top: thin solid orange }
+      // border-bottom: thin solid orange;
+      // &:last-child { border: 0 }
     }
   }
 }
