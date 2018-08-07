@@ -53,3 +53,24 @@ body {
     }
   }
 }
+
+.boxes3 {
+  display: flex;
+  .box {
+    position: relative;
+    color: black;
+    padding: 2rem 1rem;
+    &:nth-child(odd) { background: darksalmon }
+    &:nth-child(even) { background: orchid }
+
+    &:not(:last-child) .border-box {
+      position: absolute;
+      top: 12px;
+      left: 0;
+      bottom: 10px;
+      right: 0;       // it might make sense to use negative number here
+      z-index: 1;     // needed if parent has background color and right is negative
+      border-right: 1px solid #333;
+    }
+  }
+}
