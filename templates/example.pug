@@ -38,7 +38,7 @@ body.container
         let y = sessionStorage.scrollTop
         console.log(`Scroll to ${y}`)
         window.scrollTo(0, y)
-        sessionStorage.scrollTop = undefined
+        delete sessionStorage.scrollTop
       }
       document.querySelector('.debug-width').textContent = document.documentElement.clientWidth
     }
