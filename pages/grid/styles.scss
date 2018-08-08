@@ -76,17 +76,17 @@ div[class^="grid"] {
 .grid4 {
   display: grid;
   grid-gap: 5px;
-  grid: 1fr 1fr / 30px repeat(10, 1fr);
+  grid: 1fr 1fr [row-end] / 30px repeat(10, 1fr) [col-end];
   background: lightsteelblue;
   text-align: center;
 
-  .gutter {
+  .edge {
     background: lemonchiffon;
-    grid-area: 1 / 1 / 3 / 1;
+    grid-area: 1 / 1 / row-end / 1;
   }
   .header {
     background: lightpink;
-    grid-area: 1 / 2 / 2 / 12;
+    grid-area: 1 / 2 / 2 / col-end;
   }
   div[class^="cell"] {
     background: olive;
@@ -94,12 +94,6 @@ div[class^="grid"] {
   }
 
   @media screen and (max-width: $break-small) {
-    grid: repeat(6, 1fr) / 30px repeat(2, 1fr);
-    .gutter {
-      grid-area: 1 / 1 / 7 / 2;
-    }
-    .header {
-      grid-area: 1 / 2 / 2 / 4;
-    }
+    grid: repeat(6, 1fr) [row-end] / 30px repeat(2, 1fr) [col-end];
   }
 }
