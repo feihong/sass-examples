@@ -1,6 +1,10 @@
 $break-small: 400px;
 $break-medium: 600px;
 
+body {
+  margin-bottom: 20rem;
+}
+
 div[class^="grid"] {
   margin-bottom: 1rem;
 }
@@ -96,4 +100,24 @@ div[class^="grid"] {
   @media screen and (max-width: $break-small) {
     grid: repeat(6, 1fr) [row-end] / 30px repeat(2, 1fr) [col-end];
   }
+}
+
+.grid5 {
+  $cell-width: 100px;
+  display: grid;
+  background: lightsteelblue;
+  text-align: center;
+
+  div[class^="cell"] {
+    min-width: $cell-width;
+    border: 1px solid gray;
+    &:nth-child(odd) {
+      background: lightpink;
+    }
+    &:nth-child(even) {
+      background: lightyellow;
+    }
+  }
+  grid: 1fr / 1fr 1fr;   // 1 row, 2 columns
+  grid-auto-flow: row;   // add more rows
 }

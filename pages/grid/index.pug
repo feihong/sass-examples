@@ -35,8 +35,16 @@ block content
   p Use grid-area as shorthand for grid-row-start, grid-column-start, grid-row-end, and grid-column-end.
   
   .grid4
-    .gutter 囧
+    .edge 囧
     .header Header
+    - for (let i=1; i <= 10; i++)
+      div(class=`cell${i}`)= `cell${i}`
+      
+  hr
+    
+  p Grid overflow
+  
+  .grid5
     - for (let i=1; i <= 10; i++)
       div(class=`cell${i}`)= `cell${i}`
     
