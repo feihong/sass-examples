@@ -134,12 +134,8 @@ div[class^="grid"] {
       background: lightyellow;
     }
   }
-  // Need to set the maximum number of columns, otherwise you end up with an
-  // extra column when the screen is wider than your cells.
-  grid-template-columns: repeat(10, 1fr);
-  @media (max-width: 10 * $cell-width + 100) {
-    // Not sure what the difference between auto-fill and auto-fit are, they
-    // seem to work equally well here.
-    grid-template-columns: repeat(auto-fill, minmax($cell-width, 1fr));
-  }
+  // Prefer auto-fit here, auto-fill will add new (empty) columns when the
+  // screen gets wide enough to accomodate all columns.
+  // See https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
+  grid-template-columns: repeat(auto-fit, minmax($cell-width, 1fr));
 }
