@@ -88,7 +88,7 @@ div[class^="grid"] {
     background: lightpink;
     grid-area: 1 / 2 / 2 / col-end;
   }
-  div[class^="cell"] {
+  .cell {
     background: olive;
     color: white;
   }
@@ -104,7 +104,7 @@ div[class^="grid"] {
   background: lightsteelblue;
   text-align: center;
 
-  div[class^="cell"] {
+  .cell {
     min-width: $cell-width;
     border: 1px solid gray;
     &:nth-child(odd) {
@@ -116,4 +116,30 @@ div[class^="grid"] {
   }
   grid: 1fr / 1fr 1fr;   // 1 row, 2 columns
   grid-auto-flow: row;   // add more rows
+}
+
+.grid6 {
+  $cell-width: 100px;
+  display: grid;
+  background: lightsteelblue;
+  text-align: center;
+
+  .cell {
+    min-width: $cell-width;
+    border: 1px solid gray;
+    &:nth-child(odd) {
+      background: lightpink;
+    }
+    &:nth-child(even) {
+      background: lightyellow;
+    }
+  }
+  // Need to set the maximum number of columns, otherwise you end up with an
+  // extra column when the screen is wider than your cells.
+  grid-template-columns: repeat(10, 1fr);
+  @media (max-width: 10 * $cell-width + 100) {
+    // Not sure what the difference between auto-fill and auto-fit are, they
+    // seem to work equally well here.
+    grid-template-columns: repeat(auto-fill, minmax($cell-width, 1fr));
+  }
 }

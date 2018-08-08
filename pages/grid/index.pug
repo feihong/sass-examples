@@ -38,13 +38,21 @@ block content
     .edge 囧
     .header Header
     - for (let i=1; i <= 10; i++)
-      div(class=`cell${i}`)= `cell${i}`
+      .cell= `cell${i}`
       
   hr
     
-  p Grid overflow
+  p Grid overflow (1 row, 2 columns)
   
   .grid5
     - for (let i=1; i <= 10; i++)
-      div(class=`cell${i}`)= `cell${i}`
+      .cell= `cell${i}`
+      
+  p Progressively responsive grid, no media queries
+  
+  .grid6
+    - for (let i=1; i <= 10; i++)
+      .cell= `cell${i}`
+  
+  
     
